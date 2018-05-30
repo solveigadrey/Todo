@@ -1,1 +1,4 @@
-coucou 
+#list{
+    border: solid 1px black;
+    width: 150px;
+}
