@@ -1,4 +1,17 @@
-#list{
+#list,#doneList{
     border: solid 1px black;
     width: 150px;
+    display: inline-block;
 }
+
+#insideList,#insideListDone{
+    position: relative
+}
+#done,#poubelle{
+    position:absolute;
+    right: 0;
+    width:2px;
+    height: 2px;
+    border: solid 1px black;
+}
+
