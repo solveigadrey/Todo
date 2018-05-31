@@ -30,7 +30,7 @@ class App extends React.Component{
     }
 
     renderMap(arr){
-        return arr.map(x=><div  id="insideList" key ={`item${x}`}>{x}
+        return arr.map(x=><div  id="insideToDoList" key ={`item${x}`}>{x}
         <span id="done" onClick={this.addToDone}></span>
         <span id="delete" onClick={window.Helper.deleteElement}></span>
         </div>);
@@ -55,8 +55,10 @@ class App extends React.Component{
                     }}/>
                     <button onClick={this.addToDo}>add</button>
                 </div>
-                <div id="list">
-                    {this.renderMap(this.state.myTodoList)}
+                <div id="lists">
+                    <div id="toDoList">
+                        {this.renderMap(this.state.myTodoList)}
+                    </div>
                     <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} /> 
                 </div>    
             </div>
@@ -69,6 +71,7 @@ class Done extends React.Component{
         this.addToToDoList =this.addToToDoList.bind(this);
     }
     addToToDoList(e){
+        window.Helper.deleteElement(e)
         this.props.handle(e.target.parentElement);
     }
     renderMapDone(arr){

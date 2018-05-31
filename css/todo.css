@@ -1,15 +1,23 @@
-#list,#doneList{
+#lists{
+    border: solid black 1px;
+    width: 50%;
+    position: relative;
+}
+
+#toDoList,#doneList{
+    position: absolute;
+    top: 5%;
     border: solid 1px black;
     width: 150px;
-    display: inline-block;
+    margin: 3%;
 }
 #doneList{
-    position: absolute;
-    left: 15%;
+    left: 57%;
 }
-#insideList,#insideListDone{
+
+#insideToDoList,#insideListDone{
     position: relative;
-    height: 22px;
+
 }
 #done,#reDo{
     position:absolute;
