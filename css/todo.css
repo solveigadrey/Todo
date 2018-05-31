@@ -5,20 +5,37 @@
 }
 
 #insideList,#insideListDone{
-    position: relative
+    position: relative;
+    height: 22px;
 }
 #done,#reDo{
     position:absolute;
     right: 0;
     width:2px;
     height: 2px;
-    border: solid 1px black;
 }
 #delete{
     position:absolute;
-    right: 5px;
-    width:2px;
-    height: 2px;
-    border: solid 1px black;
+    right: 22px;
+    height: 20px;
+    width : 20px;
+    background-image: url("../images/trash.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
+#done{
+    height: 20px;
+    width : 20px;
+    background-image: url("../images/ok.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#reDo{
+    height: 20px;
+    width : 20px;
+    background-image: url("../images/redo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
