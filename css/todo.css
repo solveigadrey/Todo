@@ -1,5 +1,4 @@
 #lists{
-
     position: relative;
 }
 
@@ -11,6 +10,7 @@
     width: auto;
     margin: 3%;
 }
+
 #doneList{
     left: 57%;
 }
@@ -51,7 +51,15 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-
+#star{
+    position:absolute;
+    right: 50px;
+    height: 20px;
+    width : 20px;
+    background-image: url("../images/trash.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 body {
     background-color: #bfbfbf;
 }

@@ -2,7 +2,7 @@ var Helper={}
 
 
 Helper.deleteElement = function deleteElement(e){
-    e.target.parentElement.remove()
+    e.target.parentElement.parentElement.remove()
     
 }
 
