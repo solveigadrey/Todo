@@ -2,24 +2,28 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.addToDo = this.addToDo.bind(this);
-        this.addToDone= this.addToDone.bind(this)
+        this.addToDone= this.addToDone.bind(this);
+        this.getBackToToDoList = this.getBackToToDoList.bind(this);
+
         this.state={
             myTodoList:[],
-            myDoneList:[]
+            myDoneList:[],
         }
     }
 
-    addToDo(){
-        this.state.myTodoList.push(this.textInput.value)
+    addToDo(e){
+        this.state.myTodoList.push(this.textInput.value);//add the value to the list to do
+        
         this.setState({
             myTodoList:this.state.myTodoList    
         })
         
     }
-
+    
     addToDone(e){
         
         this.state.myDoneList.push(e.target.parentElement.textContent)//go to the parent of the span to get the text content ;
+        window.Helper.deleteElement(e)//remove the element from the todo list
         this.setState({
             myDoneList:this.state.myDoneList
         })
@@ -28,10 +32,17 @@ class App extends React.Component{
     renderMap(arr){
         return arr.map(x=><div  id="insideList" key ={`item${x}`}>{x}
         <span id="done" onClick={this.addToDone}></span>
-        <span id="delete" onClick={this.deleteElement}></span>
+        <span id="delete" onClick={window.Helper.deleteElement}></span>
         </div>);
     }
-    
+    getBackToToDoList(content){
+        this.state.myTodoList.push(content.textContent);
+        content.remove();
+        this.setState({
+            myTodoList:this.state.myTodoList    
+        })
+
+    }
     render(){
        
         return(
@@ -48,19 +59,23 @@ class App extends React.Component{
                         {this.renderMap(this.state.myTodoList)}    
                     </div>
                 </div>
-                <Bom doneList ={this.state.myDoneList} />
+                <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} />
             </div>
         )
     }
 }
-class Bom extends React.Component{
+class Done extends React.Component{
     constructor(props){
         super(props);
+        this.addToToDoList =this.addToToDoList.bind(this);
+    }
+    addToToDoList(e){
+        this.props.handle(e.target.parentElement);
     }
     renderMapDone(arr){
         return arr.map(x=><div id="insideListDone" key ={`item${x}`}>{x}
-        <span id="delete" onClick={this.deleteElement}></span>
-        <span id="reDo" onClick={this.addToDone}></span>
+        <span id="delete" onClick={window.Helper.deleteElement}></span>
+        <span id="reDo" onClick={this.addToToDoList}></span>
         </div>);
     }
     render(){
