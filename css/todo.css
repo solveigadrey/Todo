@@ -7,7 +7,8 @@
     position: absolute;
     top: 5%;
     border: solid 1px black;
-    width: 30%;
+    min-width: 15%;
+    width: auto;
     margin: 3%;
 }
 #doneList{

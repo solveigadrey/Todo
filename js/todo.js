@@ -31,8 +31,10 @@ class App extends React.Component{
 
     renderMap(arr){
         return arr.map(x=><div  id="insideToDoList" key ={`item${x}`}>{x}
-        <span id="done" onClick={this.addToDone}></span>
-        <span id="delete" onClick={window.Helper.deleteElement}></span>
+        <span id ="icon">
+            <span id="done" onClick={this.addToDone}></span>
+            <span id="delete" onClick={window.Helper.deleteElement}></span>
+        </span>
         </div>);
     }
     getBackToToDoList(content){
@@ -76,8 +78,10 @@ class Done extends React.Component{
     }
     renderMapDone(arr){
         return arr.map(x=><div id="insideListDone" key ={`item${x}`}>{x}
-        <span id="delete" onClick={window.Helper.deleteElement}></span>
-        <span id="reDo" onClick={this.addToToDoList}></span>
+        <span id ="icon">
+            <span id="delete" onClick={window.Helper.deleteElement}></span>
+            <span id="reDo" onClick={this.addToToDoList}></span>
+        </span>
         </div>);
     }
     render(){
