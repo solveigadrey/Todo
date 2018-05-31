@@ -5,8 +5,7 @@
 #toDoList,#doneList{
     position: absolute;
     top: 5%;
-    border: solid 1px black;
-    min-width: 15%;
+    min-width:15%;
     width: auto;
     margin: 3%;
 }
@@ -17,9 +16,16 @@
 
 #insideToDoList,#insideListDone{
     position: relative;
-
-
+    border: 1px solid grey;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    opacity:0.9;
+    height: 30px;
+    padding-top: 12px;
+    padding-left: 10%;
 }
+
 #done,#reDo{
     position:absolute;
     right: 0;
@@ -61,5 +67,19 @@
     background-size: contain;
 }
 body {
-    background-color: #bfbfbf;
+    background-image: url("../images/back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Neucha', cursive;
 }
+
+#root{
+    background-color: white;
+    opacity: 0.9;
+    padding-left: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-bottom: 1%;
+    padding-top: 1px;
+}
+
