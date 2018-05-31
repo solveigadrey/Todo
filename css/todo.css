@@ -7,9 +7,16 @@
 #insideList,#insideListDone{
     position: relative
 }
-#done,#poubelle{
+#done,#reDo{
     position:absolute;
     right: 0;
+    width:2px;
+    height: 2px;
+    border: solid 1px black;
+}
+#delete{
+    position:absolute;
+    right: 5px;
     width:2px;
     height: 2px;
     border: solid 1px black;

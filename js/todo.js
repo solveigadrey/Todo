@@ -1,36 +1,35 @@
-// var data ={
-//     myList:[]
-// }
-
 class App extends React.Component{
     constructor(props){
         super(props);
         this.addToDo = this.addToDo.bind(this);
         this.addToDone= this.addToDone.bind(this)
         this.state={
-            myList:[],
-            myList2:[]
+            myTodoList:[],
+            myDoneList:[]
         }
     }
 
     addToDo(){
-        this.state.myList.push(this.textInput.value)
+        this.state.myTodoList.push(this.textInput.value)
         this.setState({
-            myList:this.state.myList    
+            myTodoList:this.state.myTodoList    
         })
         
     }
 
     addToDone(e){
         
-        this.state.myList2.push(e.target.parentElement.textContent);
+        this.state.myDoneList.push(e.target.parentElement.textContent)//go to the parent of the span to get the text content ;
         this.setState({
-            myList2:this.state.myList2
+            myDoneList:this.state.myDoneList
         })
     }
 
     renderMap(arr){
-        return arr.map(x=><div  id="insideList" key ={`item${x}`}>{x}<span id="done" onClick={this.addToDone}></span></div>);
+        return arr.map(x=><div  id="insideList" key ={`item${x}`}>{x}
+        <span id="done" onClick={this.addToDone}></span>
+        <span id="delete" onClick={this.deleteElement}></span>
+        </div>);
     }
     
     render(){
@@ -46,10 +45,10 @@ class App extends React.Component{
                     <button onClick={this.addToDo}>add</button>
 
                     <div id="list">
-                        {this.renderMap(this.state.myList)}    
+                        {this.renderMap(this.state.myTodoList)}    
                     </div>
                 </div>
-                <Bom doneList ={this.state.myList2} />
+                <Bom doneList ={this.state.myDoneList} />
             </div>
         )
     }
@@ -59,7 +58,10 @@ class Bom extends React.Component{
         super(props);
     }
     renderMapDone(arr){
-        return arr.map(x=><div id="insideListDone" key ={`item${x}`}>{x}</div>);
+        return arr.map(x=><div id="insideListDone" key ={`item${x}`}>{x}
+        <span id="delete" onClick={this.deleteElement}></span>
+        <span id="reDo" onClick={this.addToDone}></span>
+        </div>);
     }
     render(){
         return(
