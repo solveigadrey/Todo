@@ -42,3 +42,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+body {
+    background-color: #bfbfbf;
+}
