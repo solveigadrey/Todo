@@ -37,7 +37,7 @@ class App extends React.Component{
     }
     getBackToToDoList(content){
         this.state.myTodoList.push(content.textContent);
-        content.remove();
+        window.Helper.deleteElement;
         this.setState({
             myTodoList:this.state.myTodoList    
         })
@@ -54,12 +54,11 @@ class App extends React.Component{
                         this.textInput=input;
                     }}/>
                     <button onClick={this.addToDo}>add</button>
-
-                    <div id="list">
-                        {this.renderMap(this.state.myTodoList)}    
-                    </div>
                 </div>
-                <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} />
+                <div id="list">
+                    {this.renderMap(this.state.myTodoList)}
+                    <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} /> 
+                </div>    
             </div>
         )
     }

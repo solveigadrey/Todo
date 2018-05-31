@@ -3,7 +3,10 @@
     width: 150px;
     display: inline-block;
 }
-
+#doneList{
+    position: absolute;
+    left: 15%;
+}
 #insideList,#insideListDone{
     position: relative
 }
