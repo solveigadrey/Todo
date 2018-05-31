@@ -21,6 +21,7 @@ class App extends React.Component{
     
     addToDone(e){
         this.state.myDoneList.push(e.target.parentElement.parentElement.textContent)//go to the parent of the parent of the span to get the text content ;
+        window.Helper.deleteElement(e)
         this.setState({
             myDoneList:this.state.myDoneList
         })
@@ -60,6 +61,7 @@ class App extends React.Component{
                 <h1>ToDo List</h1>
 
                 <div id ="toDo">
+                    
                     <input ref={(input)=>{
                         this.textInput=input;
                     }}/>
@@ -98,7 +100,7 @@ class Done extends React.Component{
     render(){
         return(
             <div id="doneList">
-                <h2>Done List</h2>
+                <h2>Done</h2>
                 {this.renderMapDone(this.props.doneList)} 
             </div>
         )
