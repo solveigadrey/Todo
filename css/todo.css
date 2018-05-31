@@ -83,3 +83,33 @@ body {
     padding-top: 1px;
 }
 
+button{
+    width: 15%;
+    font-size: 130%;
+    border-radius: 25%;
+    text-align: center;
+    margin-left: 5%;
+}
+
+button:hover{
+    background-color: aqua;
+    width: 15%;
+    font-size: 130%;
+    border-radius: 25%;
+    text-align: center;
+    margin-left: 5%;
+}
+
+input{
+    margin-left:35%;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    background-color: turquoise;
+    border-radius: 15%;
+    text-align: center;
+}

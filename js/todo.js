@@ -4,7 +4,7 @@ class App extends React.Component{
         this.addToDo = this.addToDo.bind(this);
         this.addToDone= this.addToDone.bind(this);
         this.getBackToToDoList = this.getBackToToDoList.bind(this);
-        this.addToStar = this.addToStar.bind(this);
+        // this.addToStar = this.addToStar.bind(this);
 
         this.state={
             myTodoList:[],
@@ -21,26 +21,26 @@ class App extends React.Component{
     
     addToDone(e){
         this.state.myDoneList.push(e.target.parentElement.parentElement.textContent)//go to the parent of the parent of the span to get the text content ;
-        window.Helper.deleteElement(e)//remove the element from the todo list
         this.setState({
             myDoneList:this.state.myDoneList
         })
      }
 
-    addToStar(content){   
-        this.state.myTodoList.unshift(content.parentElement.parentElement.textContent);
-        window.Helper.deleteElement(content)
-        this.setState({
-            myTodoList:this.state.myTodoList
-        })
-    }
+    // addToStar(content){   
+    //     var index =this.state.myTodoList.indexOf(content.target.parentElement.parentElement.textContent);
+    //     this.state.myTodoList.unshift(index);
+    //     window.Helper.deleteElement(content)
+    //     this.setState({
+    //         myTodoList:this.state.myTodoList
+    //     })
+    // }
 
     renderMap(arr){
         return arr.map(x=><div id="insideToDoList" key ={`item${x}`}>{x}
         <span id ="icon">
             <span id="done" onClick={this.addToDone}></span>
             <span id="delete" onClick={window.Helper.deleteElement}></span>
-            <span id="star" onClick={this.addToStar}></span>
+            {/* <span id="star" onClick={this.addToStar}></span> */}
         </span>
         </div>);
     }
@@ -67,6 +67,7 @@ class App extends React.Component{
                 </div>
                 <div id="lists">
                     <div id="toDoList">
+                    <h2>ToDo List</h2>
                         {this.renderMap(this.state.myTodoList)}
                     </div>
                     <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} /> 
@@ -97,6 +98,7 @@ class Done extends React.Component{
     render(){
         return(
             <div id="doneList">
+                <h2>Done List</h2>
                 {this.renderMapDone(this.props.doneList)} 
             </div>
         )
