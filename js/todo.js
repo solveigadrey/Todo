@@ -1,10 +1,11 @@
+var song = new Audio("./todoBom.mp3");
+
 class App extends React.Component{
     constructor(props){
         super(props);
         this.addToDo = this.addToDo.bind(this);
         this.addToDone= this.addToDone.bind(this);
         this.getBackToToDoList = this.getBackToToDoList.bind(this);
-        // this.addToStar = this.addToStar.bind(this);
 
         this.state={
             myTodoList:[],
@@ -12,6 +13,7 @@ class App extends React.Component{
         }
     }
     addToDo(){
+        
         this.state.myTodoList.push(this.textInput.value);//add the value to the list to do
         this.setState({
             myTodoList:this.state.myTodoList    
@@ -27,21 +29,12 @@ class App extends React.Component{
         })
      }
 
-    // addToStar(content){   
-    //     var index =this.state.myTodoList.indexOf(content.target.parentElement.parentElement.textContent);
-    //     this.state.myTodoList.unshift(index);
-    //     window.Helper.deleteElement(content)
-    //     this.setState({
-    //         myTodoList:this.state.myTodoList
-    //     })
-    // }
 
     renderMap(arr){
         return arr.map(x=><div id="insideToDoList" key ={`item${x}`}>{x}
         <span id ="icon">
             <span id="done" onClick={this.addToDone}></span>
             <span id="delete" onClick={window.Helper.deleteElement}></span>
-            {/* <span id="star" onClick={this.addToStar}></span> */}
         </span>
         </div>);
     }
@@ -55,8 +48,10 @@ class App extends React.Component{
 
     }
     render(){
+        song.play();
             return(
                 <div>
+                    <div class ="nameOfApp">To do ... To do... Done!</div>
                     <div id="titles">
                         <h1 id="todoTitle">ToDo List</h1>
                         <h1 id="donetitle" >Done</h1>
@@ -107,6 +102,7 @@ class Done extends React.Component{
     }
 }
 ReactDOM.render(
+
     <App/>,
     document.getElementById("root")
 );
