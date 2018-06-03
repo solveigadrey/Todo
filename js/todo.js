@@ -55,27 +55,28 @@ class App extends React.Component{
 
     }
     render(){
-       
-        return(
-            <div>
-                <h1>ToDo List</h1>
-
-                <div id ="toDo">
-                    
-                    <input ref={(input)=>{
-                        this.textInput=input;
-                    }}/>
-                    <button onClick={this.addToDo}>add</button>
-                </div>
-                <div id="lists">
-                    <div id="toDoList">
-                    <h2>ToDo List</h2>
-                        {this.renderMap(this.state.myTodoList)}
+            return(
+                <div>
+                    <div id="titles">
+                        <h1 id="todoTitle">ToDo List</h1>
+                        <h1 id="donetitle" >Done</h1>
                     </div>
-                    <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} /> 
+                    <div id ="toDo">
+                        <input ref={(input)=>{
+                            this.textInput=input;
+                        }}/>
+                        <button onClick={this.addToDo}>add</button>
+                        <div id="lists">
+                            <div id="toDoList">
+                                {this.renderMap(this.state.myTodoList)}
+                            </div>
+                            <Done handle ={this.getBackToToDoList} doneList ={this.state.myDoneList} /> 
+                        </div>
+                    </div>
+                   
                 </div>    
-            </div>
-        )
+            )
+        
     }
 }
 class Done extends React.Component{
@@ -100,7 +101,6 @@ class Done extends React.Component{
     render(){
         return(
             <div id="doneList">
-                <h2>Done</h2>
                 {this.renderMapDone(this.props.doneList)} 
             </div>
         )
